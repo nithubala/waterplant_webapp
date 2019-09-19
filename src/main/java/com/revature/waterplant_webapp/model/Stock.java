@@ -9,6 +9,8 @@ public class Stock {
 	private int oderedCans;
 	private int reservedCans;
 	private int cans;
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm a z")
+	private LocalDate date;
 	
 	public int getOderedCans() {
 		return oderedCans;
@@ -33,10 +35,8 @@ public class Stock {
 	public void setCans(int cans) {
 		this.cans = cans;
 	}
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm a z")
-	private LocalDate date;
-
-	public LocalDate getDate() {
+	
+    public LocalDate getDate() {
 		return date;
 	}
 

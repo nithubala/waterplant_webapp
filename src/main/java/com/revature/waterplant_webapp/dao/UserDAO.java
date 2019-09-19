@@ -75,6 +75,42 @@ public void register(User user) throws DBException {
 
 	}
 	
+	public User adminLogin(String emailId, String password) throws DBException {
+
+		Connection con =null;
+		PreparedStatement pst = null;
+		con = ConnectionUtil.getConnection();
+		String sql = "select * from userdetails where Email_id=? and Password=? and Role='A'";
+		 User user= null;	        
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, emailId);
+			pst.setString(2, password);
+			ResultSet rs = pst.executeQuery();
+        
+			if (rs.next()) {
+				user =  new User();
+                user.setId(rs.getInt("User_id"));
+				user.setName(rs.getString("User_name"));
+				user.setEmailId(rs.getString("Email_id"));
+				user.setPassword(rs.getString("Password"));
+				user.setAddress(rs.getString("Address"));
+				user.setMobileNo(rs.getLong("Mobile_no"));
+				user.setRole(rs.getString("Role"));
+			} 
+
+		} catch (SQLException e) {
+			throw new DBException("Unable to login",e);
+		}
+		finally {
+			ConnectionUtil.close(con, pst);
+		}
+		
+		return user;
+		
+
+	}
+	
 	public User getUserID(String emailId) {
 		Connection con =null;
 		PreparedStatement pst = null;

@@ -79,7 +79,7 @@ public List<Stock> viewStock() throws DBException{
 		Connection con =null;
 		PreparedStatement pst = null;
 		con = ConnectionUtil.getConnection();
-		String sql = "update stockdetails set Available_cans=?";
+		String sql = "update stockdetails set Available_cans=?,Date_time=current_timestamp()";
 		try {
 			pst = con.prepareStatement(sql);
 			pst.setInt(1,totalCans );

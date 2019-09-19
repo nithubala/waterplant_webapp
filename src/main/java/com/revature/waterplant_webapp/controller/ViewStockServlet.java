@@ -19,20 +19,9 @@ public class ViewStockServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Stock> list=null;
-		
-		AdminService admin= new AdminService();
-		try {
-			list=admin.viewstock();
-		} catch (ServiceException e) {
-			
-			e.printStackTrace();
-			
-		}
-		   Gson gson = new Gson();
-		   String json = gson.toJson(list);
+	       String Json=StockController.viewStock();
 		   PrintWriter out = response.getWriter();
-		   out.println(json);
+		   out.println(Json);
 		   out.flush();
 	 }
 	

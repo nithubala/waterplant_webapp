@@ -1,4 +1,4 @@
- <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+ <nav class="navbar navbar-expand-md navbar-light" style="background-color: #00BFFF;">
     <a class="navbar-brand" href="#">Water Plant</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

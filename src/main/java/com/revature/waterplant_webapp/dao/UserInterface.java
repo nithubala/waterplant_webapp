@@ -9,5 +9,7 @@ public interface UserInterface {
 	
 	User login(String emailId, String password) throws DBException;
 	
+	User adminLogin(String emailId, String password) throws DBException;
+	
 	User getUserID(String emailId);
 }

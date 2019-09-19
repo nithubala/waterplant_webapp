@@ -26,7 +26,7 @@ public class AdminService {
 		return list;
 	}
 
-	public static void updateStock(int addCans) throws ServiceException {
+	public  void updateStock(int addCans) throws ServiceException {
 		
 		Stock stock=null;
 		try {
